@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLSP Study Planner</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- LOGIN / SIGNUP PAGE -->
+  <div class="auth-container" id="authPage">
+
+   <div class="auth-box">
+
+  <!-- LEFT SIDE -->
+  <div class="left-auth">
+
+    <div class="logo-icon">
+      <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+
+    <h1>PLSP<br>Study Planner</h1>
+
+    <div class="line"></div>
+
+    <p>
+      Pamantasan ng Lungsod ng San Pablo
+    </p>
+
+    <div class="line"></div>
+
+    <div class="book-icon">
+      <i class="fa-solid fa-book-open"></i>
+    </div>
+
+    <p class="desc">
+      Organize your schedules,
+      tasks, and study sessions
+      efficiently.
+    </p>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right-auth">
+
+    <!-- LOGIN -->
+    <div class="auth-form">
+
+      <form id="loginForm">
+
+        <h2>Login</h2>
+
+        <div class="input-group">
+          <label>Email</label>
+
+          <div class="input-icon">
+            <i class="fa-solid fa-envelope"></i>
+
+            <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter your email"
+            required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+
+          <div class="input-icon">
+            <i class="fa-solid fa-lock"></i>
+
+            <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter your password"
+            required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">
+          Login
+        </button>
+
+        <p class="switch-text">
+          Don't have an account?
+          <span onclick="showSignup()">
+            Sign Up
+          </span>
+        </p>
+
+      </form>
+
+    </div>
+
+    <!-- SIGNUP -->
+    <div class="auth-form">
+
+      <form id="signupForm">
+
+        <h2>Create Account</h2>
+
+        <div class="input-group">
+          <label>Full Name</label>
+
+          <div class="input-icon">
+            <i class="fa-solid fa-user"></i>
+
+            <input
+            type="text"
+            id="signupName"
+            placeholder="Enter your full name"
+            required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Email</label>
+
+          <div class="input-icon">
+            <i class="fa-solid fa-envelope"></i>
+
+            <input
+            type="email"
+            id="signupEmail"
+            placeholder="Enter your email"
+            required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+
+          <div class="input-icon">
+            <i class="fa-solid fa-lock"></i>
+
+            <input
+            type="password"
+            id="signupPassword"
+            placeholder="Create password"
+            required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">
+          Sign Up
+        </button>
+
+        <p class="switch-text">
+          Already have an account?
+          <span onclick="showLogin()">
+            Login
+          </span>
+        </p>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- STUDY PLANNER -->
+  <div id="plannerPage">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="logo">
+        <h2>PLSP Planner</h2>
+      </div>
+
+      <ul>
+
+        <li class="menu active"
+        onclick="showSection('dashboard')">
+          <i class="fa-solid fa-house"></i>
+          Dashboard
+        </li>
+
+        <li class="menu"
+        onclick="showSection('profile')">
+          <i class="fa-solid fa-user"></i>
+          Profile
+        </li>
+
+        <li class="menu"
+        onclick="showSection('calendar')">
+          <i class="fa-solid fa-calendar"></i>
+          Calendar
+        </li>
+
+        <li class="menu"
+        onclick="showSection('tasks')">
+          <i class="fa-solid fa-list-check"></i>
+          Tasks
+        </li>
+
+        <li class="menu"
+        onclick="showSection('timerSection')">
+          <i class="fa-solid fa-clock"></i>
+          Study Timer
+        </li>
+
+        <li class="menu logout"
+        onclick="logoutUser()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <!-- TOPBAR -->
+      <div class="topbar">
+        <h1>PLSP Study Planner Dashboard</h1>
+      </div>
+
+      <!-- DASHBOARD -->
+<!-- DASHBOARD -->
+<div id="dashboard" class="content-section">
+
+  <!-- WELCOME BOX -->
+  <div class="welcome-box">
+
+    <h1>
+      Welcome,
+      <span id="dashboardName">Student</span>!
+    </h1>
+
+    
+
+    <p>
+      Organize your tasks, schedules,
+      and study sessions efficiently.
+    </p>
+
+  </div>
+
+  <!-- DASHBOARD CARDS -->
+  <div class="cards dashboard-cards">
+    <!-- TASK CARD -->
+    <div class="card">
+      <i class="fa-solid fa-list-check"></i>
+
+      <h3 id="taskCount">0</h3>
+
+      <p>Tasks</p>
+    </div>
+
+    
+
+  </div>
+
+</div>
+      <!-- PROFILE -->
+      <!-- PROFILE -->
+<!-- <!-- PROFILE -->
+<div id="profile" class="content-section hidden">
+
+  <div class="section">
+
+    <div class="section-title">
+      <h2>Student Profile</h2>
+    </div>
+
+    <!-- PROFILE CARD -->
+    <div class="profile-card-box">
+
+      <div class="profile-icon">
+        <i class="fa-solid fa-user-graduate"></i>
+      </div>
+
+      <h2 id="profileName">Student Name</h2>
+
+      <p id="profileEmail">
+        student@email.com
+      </p>
+
+      <!-- EDIT PROFILE BUTTON -->
+      <button onclick="editProfile()">
+        Edit Profile
+      </button>
+
+      <!-- EDIT FORM (HIDDEN FIRST) -->
+      <!-- EDIT FORM -->
+<div class="profile-box hidden"
+id="editProfileBox">
+
+</div>
+
+    </div>
+
+  </div>
+
+</div>
+      <!-- CALENDAR -->
+      <!-- CALENDAR -->
+<div id="calendar"
+class="content-section hidden">
+
+  <div class="section">
+
+    <div class="section-title">
+      <h2>Study Calendar</h2>
+    </div>
+
+    <div class="calendar-container">
+
+      <!-- HEADER -->
+      <div class="calendar-header">
+
+        <button onclick="changeMonth(-1)">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <h2 id="monthYear"></h2>
+
+        <button onclick="changeMonth(1)">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+      </div>
+
+      <!-- DAYS -->
+      <div class="calendar-days">
+
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+
+      </div>
+
+      <!-- CALENDAR GRID -->
+      <div id="calendarGrid"
+      class="calendar-grid"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+      <!-- TASKS -->
+      <!-- TASKS -->
+<div id="tasks"
+class="content-section hidden">
+
+  <div class="section">
+
+    <div class="section-title">
+      <h2>Tasks</h2>
+    </div>
+
+    <div class="task-input">
+
+   <input type="text"
+   id="taskInput"
+   placeholder="Enter Task">
+
+<div class="deadline-box">
+
+  <label for="taskDeadline">
+    Deadline Date
+  </label>
+
+  <input
+  type="date"
+  id="taskDeadline">
+
+</div>
+
+<div class="deadline-box">
+
+  <label for="taskTime">
+    Deadline Time
+  </label>
+
+  <input
+  type="time"
+  id="taskTime">
+
+</div>
+    <button onclick="addTask()">
+    Add Task
+ </button>
+
+</div>
+
+    <ul id="taskList"></ul>
+
+  </div>
+
+</div>
+      <!-- TIMER -->
+      <div id="timerSection"
+      class="content-section hidden">
+
+        <div class="section">
+
+          <div class="section-title">
+            <h2>Study Timer</h2>
+          </div>
+
+          <div class="timer-box">
+
+            <h1 id="timer">25:00</h1>
+
+<div class="timer-set">
+
+  <input
+  type="number"
+  id="timerMinutes"
+  placeholder="Minutes">
+
+  <button onclick="setCustomTimer()">
+    Set Timer
+  </button>
+
+</div>
+
+            <div class="timer-buttons">
+
+              <button onclick="startTimer()">
+                Start
+              </button>
+
+              <button onclick="pauseTimer()">
+                Pause
+              </button>
+
+              <button onclick="resetTimer()">
+                Reset
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>
